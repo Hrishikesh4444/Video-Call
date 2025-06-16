@@ -8,7 +8,7 @@ export const AuthContext = createContext({});
 const AuthContextProvider = (props) => {
   const [userData, setUserData] = useState({});
 
-  const baseURL = `https://video-call-f9ng.onrender.com${/api/v1/users}`;
+  const baseURL = "https://video-call-f9ng.onrender.com"+"/api/v1/users";
 
   const router = useNavigate();
 
