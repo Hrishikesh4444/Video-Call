@@ -1,0 +1,6 @@
+.fullPageBackground {
+  min-height: 100vh;
+  background: linear-gradient(to right, #fefefe, #ffe7d3);
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+}

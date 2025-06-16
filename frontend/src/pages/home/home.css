@@ -1,0 +1,127 @@
+.homeContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #fff7f3, #ffe0cc);
+}
+.homeNavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  height: 10vh;
+}
+
+.homeBrand {
+  color: #FF9839;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.homeNavButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.historyText {
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+}
+
+.homeMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 6rem;
+  gap: 3rem;
+}
+
+.homeLeft {
+  flex: 1;
+}
+
+.homeLeft h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.homeLeft p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.meetingInputGroup {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+.joinBtn {
+  white-space: nowrap;
+}
+
+.homeRight {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.homeRight img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.homeNavBar .homeNavButtons button {
+  margin-left: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: transparent;
+  border: 0px solid #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #FF9839;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.homeNavBar .homeNavButtons button:hover {
+  background-color: #eaa260;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .homeMain {
+    flex-direction: column-reverse;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .homeLeft h1 {
+    font-size: 2rem;
+  }
+
+  .homeLeft p {
+    font-size: 1rem;
+  }
+
+  .meetingInputGroup {
+    flex-direction: column;
+  }
+
+  .homeRight img {
+    max-width: 80%;
+  }
+  .homeNavBar .homeNavButtons button {
+    margin-left: 0rem;
+    margin-right: -2rem;
+  }
+}

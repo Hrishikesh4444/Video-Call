@@ -1,0 +1,148 @@
+.newLandingContainer {
+  min-height: 100vh;
+  background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+  display: flex;
+  flex-direction: column;
+}
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  height: 10vh;
+}
+
+.brandName {
+  font-size: 2rem;
+  color: #FF9839;
+  font-weight: bold;
+}
+
+.navButtons button {
+  margin-left: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: transparent;
+  border: 0px solid #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #FF9839;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.navButtons button:hover {
+  background-color: #eaa260;
+  color: white;
+}
+
+.heroSection {
+  display: flex;
+  
+  padding: 4rem 6rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.heroText h2 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.heroText p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.startButton {
+  background-color: #FF9839;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.startButton:hover {
+  background-color: #e67600;
+}
+
+.heroImage img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #FF9839;
+  border-radius: 2px;
+}
+.navButtons {
+  display: flex;
+  align-items: center;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroSection {
+    flex-direction: column-reverse;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .navBar {
+    gap: 1rem;
+  }
+
+  .heroText h2 {
+    font-size: 2rem;
+  }
+
+  .heroText p {
+    font-size: 1rem;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  .navButtons {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    background: white;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  .navButtons.open {
+    display: flex;
+  }
+
+  .navButtons button {
+    margin: 0.5rem 1rem;
+    width: 90%;
+    text-align: center;
+  }
+}
+
