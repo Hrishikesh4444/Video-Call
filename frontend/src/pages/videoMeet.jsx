@@ -14,7 +14,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from "react-router-dom";
 
-const server_url = "http://localhost:8000";
+const server_url = "https://video-call-f9ng.onrender.com";
 
 var connections = {};
 //to store RTCPeerConnection instances with each peer.
