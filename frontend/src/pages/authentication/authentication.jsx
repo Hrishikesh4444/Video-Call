@@ -20,7 +20,7 @@ export default function Authentication() {
   const [name, setName] = React.useState("");
   const [error, setError] = React.useState("");
   const [message, setMessage] = React.useState("");
-  const [formState, setFormState] = React.useState(false);
+  const [formState, setFormState] = React.useState(false); // false = SignIn, true = SignUp
   const [open, setOpen] = React.useState(false);
 
   const { handleRegister, handleLogin } = React.useContext(AuthContext);
@@ -49,11 +49,11 @@ export default function Authentication() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Grid container sx={{ minHeight: '100vh' }}>
-        {/* Left panel: image, hidden on xs */}
+      <Grid container direction={{ xs: 'column', sm: 'row' }} sx={{ minHeight: '100vh' }}>
+        {/* Top image on xs, left image on sm+ */}
         <Grid
           item
-          xs={0}
+          xs={12}
           sm={5}
           md={7}
           sx={{
@@ -61,10 +61,10 @@ export default function Authentication() {
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            display: { xs: 'none', sm: 'block' },
+            minHeight: { xs: 200, sm: 'auto' }
           }}
         />
-        {/* Right panel: form */}
+        {/* Form section */}
         <Grid
           item
           xs={12}
@@ -76,7 +76,7 @@ export default function Authentication() {
           justifyContent="center"
           sx={{ bgcolor: 'background.default', p: 2 }}
         >
-          <Paper sx={{ width: '100%', maxWidth: 400, p: 4, mx: 'auto' }} elevation={6}>
+          <Paper sx={{ width: '100%', maxWidth: 400, p: 4, mx: 'auto', mb: { xs: 4, sm: 0 } }} elevation={6}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                 <LockOutlinedIcon />
