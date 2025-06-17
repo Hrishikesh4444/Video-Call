@@ -50,26 +50,18 @@ export default function Authentication() {
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
 
-      {/* OUTER FLEX-CONTAINER */}
+      
       <Box
         sx={{
           display: "flex",
+          flexWrap: { xs: "wrap", sm: "nowrap" },
           height: "100vh",
           width: "100vw",
-          overflow: "hidden",
+         
         }}
       >
-        {/* LEFT PANEL: background image */}
-        <Box
-          sx={{
-            flexBasis: { xs: "50%", sm: "40%", md: "70%" },
-            minHeight: "100vh",
-            backgroundImage: `url("/urban-vintage.jpg")`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        
+        
 {/* 
         <Box
           sx={{
@@ -169,6 +161,16 @@ export default function Authentication() {
               </Box>
             </Box>
           </Paper>
+          <Box
+          sx={{
+            flexBasis: { xs: "100%", sm: "40%", md: "70%" },
+            minHeight: "50vh",
+            backgroundImage: `url("/urban-vintage.jpg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
         {/* </Box> */}
       </Box>
 
