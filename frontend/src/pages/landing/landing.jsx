@@ -18,7 +18,7 @@ const LandingPages = () => {
         </div>
 
         <nav className={`navButtons ${menuOpen ? "open" : ""}`}>
-          <button onClick={() => navigate("/abc123")}>Join as Guest</button>
+          {/* <button onClick={() => navigate("/abc123")}>Join as Guest</button> */}
           <button onClick={() => navigate("/auth")}>Register</button>
           <button onClick={() => navigate("/auth")}>Login</button>
         </nav>
