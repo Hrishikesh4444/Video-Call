@@ -5,12 +5,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Snackbar } from "@mui/material";
 import { AuthContext } from "../../context/AuthContext";
+
 
 const defaultTheme = createTheme();
 
@@ -25,23 +25,23 @@ export default function Authentication() {
 
   const { handleRegister, handleLogin } = React.useContext(AuthContext);
 
-  const handleAuth = async () => {
+  let handleAuth = async () => {
     try {
       if (!formState) {
-        const result = await handleLogin(username, password);
+        let response=await handleLogin(username,password);
         setMessage(result);
+        setOpen(true);
       } else {
-        const result = await handleRegister(name, username, password);
+        let result = await handleRegister(name, username, password);
         setMessage(result);
+        setOpen(true);
+        setError("");
         setFormState(false);
-        setName("");
-        setUsername("");
         setPassword("");
+        setUsername("");
       }
-      setError("");
-      setOpen(true);
     } catch (e) {
-      const msg = e.response?.data?.message || "Something went wrong";
+      let msg = e.response?.data?.message || "Something went wrong";
       setError(msg);
     }
   };
@@ -49,52 +49,63 @@ export default function Authentication() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Grid container direction={{ xs: 'column', sm: 'row' }} sx={{ minHeight: '100vh' }}>
-        {/* Top image on xs, left image on sm+ */}
-        <Grid
-          item
-          xs={12}
-          sm={5}
-          md={7}
+
+      {/* OUTER FLEX-CONTAINER */}
+      <Box
+        sx={{
+          display: "flex",
+          height: "100vh",
+          width: "100vw",
+          overflow: "hidden",
+        }}
+      >
+        {/* LEFT PANEL: background image */}
+        <Box
           sx={{
-            backgroundImage: `url('/urban-vintage.jpg')`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            minHeight: { xs: 200, sm: 'auto' }
+            flexBasis: { xs: "50%", sm: "40%", md: "70%" },
+            minHeight: "100vh",
+            backgroundImage: `url("/urban-vintage.jpg")`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
-        {/* Form section */}
-        <Grid
-          item
-          xs={12}
-          sm={7}
-          md={5}
-          component={Box}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          sx={{ bgcolor: 'background.default', p: 2 }}
-        >
-          <Paper sx={{ width: '100%', maxWidth: 400, p: 4, mx: 'auto', mb: { xs: 4, sm: 0 } }} elevation={6}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+{/* 
+        <Box
+          sx={{
+            flexBasis: { xs: "50%", sm: "67%", md: "42%" },
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            bgcolor: "background.default",
+          }}
+        > */}
+          <Paper  sx={{ width: "100%", maxWidth: 500, p: 4 }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
                 <LockOutlinedIcon />
               </Avatar>
+
               <Typography component="h1" variant="h5">
-                {formState ? 'Sign Up' : 'Sign In'}
+                {formState ? "Sign Up" : "Sign In"}
               </Typography>
 
-              <Box sx={{ display: 'flex', gap: 1, mt: 2, mb: 2 }}>
+              <Box sx={{ display: "flex", gap: 1, mt: 2, mb: 2 }}>
                 <Button
-                  variant={!formState ? 'contained' : 'outlined'}
+                  variant={!formState ? "contained" : "outlined"}
                   onClick={() => setFormState(false)}
                   size="small"
                 >
                   Sign In
                 </Button>
                 <Button
-                  variant={formState ? 'contained' : 'outlined'}
+                  variant={formState ? "contained" : "outlined"}
                   onClick={() => setFormState(true)}
                   size="small"
                 >
@@ -102,7 +113,7 @@ export default function Authentication() {
                 </Button>
               </Box>
 
-              <Box component="form" noValidate sx={{ width: '100%' }}>
+              <Box component="form" noValidate sx={{ width: "100%" }}>
                 {formState && (
                   <TextField
                     margin="normal"
@@ -116,6 +127,7 @@ export default function Authentication() {
                     onChange={(e) => setName(e.target.value)}
                   />
                 )}
+
                 <TextField
                   margin="normal"
                   required
@@ -138,11 +150,13 @@ export default function Authentication() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+
                 {error && (
                   <Typography color="error" variant="body2" sx={{ mt: 1 }}>
                     {error}
                   </Typography>
                 )}
+
                 <Button
                   type="button"
                   fullWidth
@@ -150,13 +164,14 @@ export default function Authentication() {
                   sx={{ mt: 3, mb: 2 }}
                   onClick={handleAuth}
                 >
-                  {formState ? 'Register' : 'Login'}
+                  {formState ? "Register" : "Login"}
                 </Button>
               </Box>
             </Box>
           </Paper>
-        </Grid>
-      </Grid>
+        {/* </Box> */}
+      </Box>
+
       <Snackbar
         open={open}
         autoHideDuration={3000}
